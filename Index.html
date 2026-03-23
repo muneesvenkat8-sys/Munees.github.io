@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Munees Portfolio</title>
+
+  <!-- ✅ CSS HERE -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 40px;
+      background: #020617;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar ul li a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: cyan;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .profile-img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: cyan;
+      border: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.5s;
+    }
+
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: cyan;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @media(max-width: 768px){
+      .navbar ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h2>Munees</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Skills</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">Certificates</a></li>
+    <li><a href="#">Goals</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://via.placeholder.com/150" class="profile-img">
+  <h1>Hi, I'm Munees</h1>
+  <p>AI Developer | Web Developer | Future Innovator</p>
+  <button onclick="downloadResume()">Download Resume</button>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <h2>About Me</h2>
+  <p>
+    I am an AIML student passionate about building intelligent systems and modern web applications.
+  </p>
+</section>
+
+<!-- CHATBOT -->
+<div class="chatbot" onclick="openChat()">💬</div>
+
+<!-- ✅ JS HERE -->
+<script>
+  function downloadResume() {
+    alert("Resume downloading...");
+  }
+
+  function openChat() {
+    alert("Chatbot coming soon 🤖");
+  }
+
+  function validateForm() {
+    let email = document.getElementById("email").value;
+
+    if (!email.includes("@")) {
+      alert("Invalid Email");
+      return false;
+    }
+    return true;
+  }
+
+  window.addEventListener("scroll", () => {
+    let sections = document.querySelectorAll("section");
+
+    sections.forEach(sec => {
+      let position = sec.getBoundingClientRect().top;
+      if (position < window.innerHeight - 100) {
+        sec.style.opacity = 1;
+        sec.style.transform = "translateY(0)";
+      }
+    });
+  });
+</script>
+
+</body>
+  </html>
